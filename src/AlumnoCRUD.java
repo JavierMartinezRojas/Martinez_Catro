@@ -73,13 +73,18 @@ public class AlumnoCRUD {
 	}
 
 	public void actualizarAlumno(Alumno alumno) {
-	ArrayList<Alumno> listaAlumnos = leerAlumnos();
-	for (int i = 0; i < listaAlumnos.size(); i++) {
-		if (listaAlumnos.get(i).getDni().equalsIgnoreCase(alumno.getDni())) {
-			listaAlumnos.set(i, alumno);
-		}
+		ArrayList<Alumno> listaAlumnos = leerAlumnos();
+			for (int i = 0; i < listaAlumnos.size(); i++) {
+				if (listaAlumnos.get(i).getDni().equalsIgnoreCase(alumno.getDni())) {
+					listaAlumnos.set(i, alumno);
+				}
+			}
+		escribirAlumnos(listaAlumnos);
 	}
-	escribirAlumnos(listaAlumnos);
-}
 
+	public void mostrarTodos() {
+		ArrayList<Alumno> listaAlumnos = leerAlumnos();
+			for (Alumno a : listaAlumnos) System.out.println(a.getNombre() +
+			" " + a.getApellidos() + " " + a.getCurso());
+	}
 }
